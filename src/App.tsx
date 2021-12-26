@@ -1,22 +1,22 @@
 // import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AppHeader from "./components/AppHeader";
 import OptionSelector from "./components/OptionSelector";
 import VideoDisplay from "./components/VideoDisplay";
-import { Video } from "./utils/Video";
+// import { Video } from "./utils/Video";
 
 function App() {
-  const [videos, setVideos] = useState<Video[]>([]);
+  const [videoIDs, setVideoIDs] = useState<string[]>([]);
 
-  useEffect(() => console.log(videos), [videos])
+  // useEffect(() => console.log(videoIDs), [videoIDs])
 
   return (
     <div className="App">
       <AppHeader />
-      <OptionSelector 
-        handleSetVideos={(newVideos: Video[]) => setVideos(newVideos)}/>
-      <VideoDisplay
-        vids= {videos} />
+      <OptionSelector
+        handleSetVideoIDs={(newVideoIDs: string[]) => setVideoIDs(newVideoIDs)}
+      />
+      <VideoDisplay vidIDs={videoIDs} />
     </div>
   );
 }
