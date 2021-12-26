@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-export default function OptionSelector(): JSX.Element {
+import { Video } from "../utils/Video";
+
+interface OptionSelectorProps {
+    handleSetVideos(videos: Video[]): void;
+}
+
+export default function OptionSelector({ handleSetVideos } : OptionSelectorProps): JSX.Element {
   // time options
   const times = [15, 20, 30, 45, 60];
   const tagLimits = [1, 1, 2, 2, 3];
@@ -73,7 +79,22 @@ export default function OptionSelector(): JSX.Element {
       }
     }
   };
-  useEffect(() => console.log(duration, level, tags), [duration, level, tags]);
+//   useEffect(() => console.log(duration, level, tags), [duration, level, tags]);
+
+  async function getVideosDb(duration: number, level: number, tags: string[]) {
+    fetch(`https://yogafit-server.herokuapp.com/getvideo/${level}/${duration}/${tags[0]}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then(
+        (video) => {
+        //   console.log(video.data.video.rows);
+          handleSetVideos(video.data.video.rows);
+        },
+        (error) => console.log(error)
+      )
+      .catch((error) => console.log(error));
+}
 
   return (
     <div className="OptionSelector">
@@ -103,6 +124,13 @@ export default function OptionSelector(): JSX.Element {
         <legend>Choose session options:</legend>
         {typesOptions}
       </fieldset>
+
+      <button 
+        disabled ={tags.length ===0}
+        onClick={() => getVideosDb(duration, level, tags)
+        }>
+        Submit
+        </button>
     </div>
   );
 }
