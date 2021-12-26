@@ -1,18 +1,9 @@
-import React, { useState } from "react";
-import MaxCheckMessage from "../utils/MaxCheckMessage";
+import React, { useEffect, useState } from "react";
 
-// import { Video } from "../utils/Video";
-
-interface OptionSelectorProps {
-  handleSetVideoIDs(newVideoIDs: string[]): void;
-}
-
-export default function OptionSelector({
-  handleSetVideoIDs,
-}: OptionSelectorProps): JSX.Element {
+export default function OptionSelector(): JSX.Element {
   // time options
-  const times = [20, 30, 45, 60];
-  const tagLimits = [1, 2, 2, 3];
+  const times = [15, 20, 30, 45, 60];
+  const tagLimits = [1, 1, 2, 2, 3];
   const timeOptions = times.map((time) => (
     <option key={time} value={time}>
       {time} mins
@@ -21,12 +12,12 @@ export default function OptionSelector({
   const [duration, setDuration] = useState<number>(times[0]);
 
   // level options
-  // const [level, setLevel] = useState<number>(1);
-  // const levels = [1, 2, 3];
-  // const levelsToShow = ["Beginner", "Intermediate", "Advanced"];
-  // const levelOptions = levels.map((level) => (
-  //   <option value={level}>{levelsToShow[levels.indexOf(level)]}</option>
-  // ));
+  const [level, setLevel] = useState<number>(1);
+  const levels = [1, 2, 3];
+  const levelsToShow = ["Beginner", "Intermediate", "Advanced"];
+  const levelOptions = levels.map((level) => (
+    <option value={level}>{levelsToShow[levels.indexOf(level)]}</option>
+  ));
 
   //   tag options
   const [tags, setTags] = useState<string[]>([]);
@@ -82,69 +73,36 @@ export default function OptionSelector({
       }
     }
   };
-  //   useEffect(() => console.log(duration, level, tags), [duration, level, tags]);
-
-  async function getVideosDb(duration: number, tags: string[]) {
-    fetch(
-      `https://yogafit-server.herokuapp.com/getvideos/3/${duration}/${tags.join(
-        "/"
-      )}`
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then(
-        (video) => {
-          // console.log(video.data.videoIDs);
-          handleSetVideoIDs(video.data.videoIDs);
-        }
-        // (error) => console.log(error)
-      )
-      .catch((error) => console.log(error));
-  }
+  useEffect(() => console.log(duration, level, tags), [duration, level, tags]);
 
   return (
     <div className="OptionSelector">
       {/* select time */}
       <label id="timeselector">Select session time: </label>
       <select
-        key="timeselections"
         id="timeselector"
         value={duration}
-        onChange={(e) => {
-          setDuration(parseInt(e.target.value));
-        }}
+        onChange={(e) => setDuration(parseInt(e.target.value))}
       >
         {timeOptions}
       </select>
 
       <br />
       {/* select difficulty level*/}
-      {/* <label id="levelSelector">Select difficulty level: </label>
+      <label id="levelSelector">Select difficulty level: </label>
       <select
         name="levelSelector"
         id="levelSelector"
         onChange={(e) => setLevel(parseInt(e.target.value))}
       >
         {levelOptions}
-      </select> */}
+      </select>
 
       {/* Select options */}
-      <fieldset key="optionselection">
-        <legend>
-          <MaxCheckMessage duration={duration} />
-        </legend>
+      <fieldset>
+        <legend>Choose session options:</legend>
         {typesOptions}
       </fieldset>
-
-      <button
-        disabled={
-          tags.length === 0 || tags.length > tagLimits[times.indexOf(duration)]
-        }
-        onClick={() => getVideosDb(duration, tags)}
-      >
-        Submit
-      </button>
     </div>
   );
 }
