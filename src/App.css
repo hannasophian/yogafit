@@ -2,6 +2,13 @@
   height: 100vh;
 }
 
+body {
+  background-image: url(./images/pexels-stephan-seeber-1054218.jpg);
+  background-size: auto 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -16,7 +23,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: rgb(18, 146, 146);
+  /* background-color: rgb(18, 146, 146); */
   color: white;
 }
 
@@ -31,5 +38,5 @@
   justify-content: center;
   align-items: center;
 
-  background-color: rgb(18, 146, 146);
+  /* background-color: rgb(18, 146, 146); */
 }
