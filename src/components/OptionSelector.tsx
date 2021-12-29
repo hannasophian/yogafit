@@ -106,19 +106,19 @@ export default function OptionSelector({
   return (
     <div className="OptionSelector">
       {/* select time */}
-      <label id="timeselector">Select session time: </label>
-      <select
-        key="timeselections"
-        id="timeselector"
-        value={duration}
-        onChange={(e) => {
-          setDuration(parseInt(e.target.value));
-        }}
-      >
-        {timeOptions}
-      </select>
-
-      <br />
+      <div className="row">
+        <label id="timeselector">Select session time: </label>
+        <select
+          key="timeselections"
+          id="timeselector"
+          value={duration}
+          onChange={(e) => {
+            setDuration(parseInt(e.target.value));
+          }}
+        >
+          {timeOptions}
+        </select>
+      </div>
       {/* select difficulty level*/}
       {/* <label id="levelSelector">Select difficulty level: </label>
       <select
@@ -130,21 +130,24 @@ export default function OptionSelector({
       </select> */}
 
       {/* Select options */}
-      <fieldset key="optionselection">
-        <legend>
-          <MaxCheckMessage duration={duration} />
-        </legend>
-        {typesOptions}
-      </fieldset>
+      <div className="row">
+        <fieldset key="optionselection">
+          <legend>
+            <MaxCheckMessage duration={duration} />
+          </legend>
+          {typesOptions}
+        </fieldset>
 
-      <button
-        disabled={
-          tags.length === 0 || tags.length > tagLimits[times.indexOf(duration)]
-        }
-        onClick={() => getVideosDb(duration, tags)}
-      >
-        Submit
-      </button>
+        <button
+          disabled={
+            tags.length === 0 ||
+            tags.length > tagLimits[times.indexOf(duration)]
+          }
+          onClick={() => getVideosDb(duration, tags)}
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 }

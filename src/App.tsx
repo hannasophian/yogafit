@@ -12,11 +12,19 @@ function App() {
 
   return (
     <div className="App">
-      <AppHeader />
-      <OptionSelector
-        handleSetVideoIDs={(newVideoIDs: string[]) => setVideoIDs(newVideoIDs)}
-      />
-      <VideoDisplay vidIDs={videoIDs} />
+      <div className="container-fluid">
+        <div className="row">
+          <AppHeader />
+        </div>
+        <OptionSelector
+          handleSetVideoIDs={(newVideoIDs: string[]) =>
+            setVideoIDs(newVideoIDs)
+          }
+        />
+        <div className="row">
+          <VideoDisplay vidIDs={videoIDs} />
+        </div>
+      </div>
     </div>
   );
 }
