@@ -107,17 +107,24 @@ export default function OptionSelector({
     <div className="OptionSelector">
       {/* select time */}
       <div className="row">
-        <label id="timeselector">Select session time: </label>
-        <select
-          key="timeselections"
-          id="timeselector"
-          value={duration}
-          onChange={(e) => {
-            setDuration(parseInt(e.target.value));
-          }}
-        >
-          {timeOptions}
-        </select>
+        <div className="Duration-Selection">
+          <div>
+            <label id="timeselector">
+              How long would you like your session to be?
+            </label>
+            <br />
+            <select
+              key="timeselections"
+              id="timeselector"
+              value={duration}
+              onChange={(e) => {
+                setDuration(parseInt(e.target.value));
+              }}
+            >
+              {timeOptions}
+            </select>
+          </div>
+        </div>
       </div>
       {/* select difficulty level*/}
       {/* <label id="levelSelector">Select difficulty level: </label>
