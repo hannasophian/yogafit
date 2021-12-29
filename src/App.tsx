@@ -4,10 +4,16 @@ import AppHeader from "./components/AppHeader";
 import OptionSelector from "./components/OptionSelector";
 import VideoDisplay from "./components/VideoDisplay";
 import "./App.css";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 // import { Video } from "./utils/Video";
 
 function App() {
   const [videoIDs, setVideoIDs] = useState<string[]>([]);
+  // useEffect(() => AOS.init(), []);
 
   // useEffect(() => console.log(videoIDs), [videoIDs])
 
