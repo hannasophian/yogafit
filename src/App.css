@@ -24,3 +24,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.Option-Selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(18, 146, 146);
+}

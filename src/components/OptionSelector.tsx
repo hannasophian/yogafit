@@ -138,22 +138,29 @@ export default function OptionSelector({
 
       {/* Select options */}
       <div className="row">
-        <fieldset key="optionselection">
-          <legend>
-            <MaxCheckMessage duration={duration} />
-          </legend>
-          {typesOptions}
-        </fieldset>
-
-        <button
-          disabled={
-            tags.length === 0 ||
-            tags.length > tagLimits[times.indexOf(duration)]
-          }
-          onClick={() => getVideosDb(duration, tags)}
-        >
-          Submit
-        </button>
+        <div className="Option-Selection">
+          <div>
+            <fieldset key="optionselection">
+              <label>What would you like to focus on this session?</label>
+              <br />
+              <label>
+                <MaxCheckMessage duration={duration} />
+              </label>
+              {typesOptions}
+            </fieldset>
+            <br />
+            <button
+              className="submit-button"
+              disabled={
+                tags.length === 0 ||
+                tags.length > tagLimits[times.indexOf(duration)]
+              }
+              onClick={() => getVideosDb(duration, tags)}
+            >
+              Get my workout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
