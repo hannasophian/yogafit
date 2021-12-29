@@ -6,16 +6,16 @@ export default function MaxCheckMessage(
 ): JSX.Element {
   switch (props.duration) {
     case 20:
-      return <p>Select 1 option</p>;
+      return <small>Select 1 option</small>;
     // break;
     case 30:
-      return <p>Select 1-2 options</p>;
+      return <small>Select 1-2 options</small>;
     // break;
     case 45:
-      return <p>Select 1-2 options</p>;
+      return <small>Select 1-2 options</small>;
     // break;
     case 60:
-      return <p>Select 1-3 options</p>;
+      return <small>Select 1-3 options</small>;
     // break;
     default:
       return <></>;

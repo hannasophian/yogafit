@@ -106,19 +106,26 @@ export default function OptionSelector({
   return (
     <div className="OptionSelector">
       {/* select time */}
-      <label id="timeselector">Select session time: </label>
-      <select
-        key="timeselections"
-        id="timeselector"
-        value={duration}
-        onChange={(e) => {
-          setDuration(parseInt(e.target.value));
-        }}
-      >
-        {timeOptions}
-      </select>
-
-      <br />
+      <div className="row">
+        <div className="Duration-Selection">
+          <div data-aos="zoom-in" data-aos-duration="1000">
+            <label id="timeselector">
+              How long would you like your session to be?
+            </label>
+            <br />
+            <select
+              key="timeselections"
+              id="timeselector"
+              value={duration}
+              onChange={(e) => {
+                setDuration(parseInt(e.target.value));
+              }}
+            >
+              {timeOptions}
+            </select>
+          </div>
+        </div>
+      </div>
       {/* select difficulty level*/}
       {/* <label id="levelSelector">Select difficulty level: </label>
       <select
@@ -130,21 +137,31 @@ export default function OptionSelector({
       </select> */}
 
       {/* Select options */}
-      <fieldset key="optionselection">
-        <legend>
-          <MaxCheckMessage duration={duration} />
-        </legend>
-        {typesOptions}
-      </fieldset>
-
-      <button
-        disabled={
-          tags.length === 0 || tags.length > tagLimits[times.indexOf(duration)]
-        }
-        onClick={() => getVideosDb(duration, tags)}
-      >
-        Submit
-      </button>
+      <div className="row">
+        <div className="Option-Selection">
+          <div data-aos="zoom-in" data-aos-duration="1000">
+            <fieldset key="optionselection">
+              <label>What would you like to focus on this session?</label>
+              <br />
+              <label>
+                <MaxCheckMessage duration={duration} />
+              </label>
+              {typesOptions}
+            </fieldset>
+            <br />
+            <button
+              className="submit-button"
+              disabled={
+                tags.length === 0 ||
+                tags.length > tagLimits[times.indexOf(duration)]
+              }
+              onClick={() => getVideosDb(duration, tags)}
+            >
+              Get my workout
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
