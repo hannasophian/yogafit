@@ -1,5 +1,9 @@
 .row {
-  height: 100vh;
+  height: 75vh;
+}
+
+h1 {
+  font-family: "Comfortaa", cursive;
 }
 
 body {
@@ -7,6 +11,7 @@ body {
   background-size: 100vw auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  color: white;
 }
 
 @media (orientation: portrait) {
@@ -39,10 +44,20 @@ body {
   justify-content: center;
   align-items: center;
 
-  /* background-color: rgb(18, 146, 146); */
-  color: white;
+  /* color: white; */
 }
 
+.header-box {
+  background-color: rgb(12, 32, 32, 0.5);
+  height: auto;
+  width: auto;
+  padding: 5vw;
+  margin: 5vw 0;
+}
+
+.header-box > p {
+  margin: 0px;
+}
 .Duration-Selection {
   display: flex;
   justify-content: center;
