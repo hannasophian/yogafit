@@ -4,10 +4,26 @@
 
 body {
   background-image: url(./images/pexels-stephan-seeber-1054218.jpg);
-  background-size: auto 100vh;
+  background-size: 100vw auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+@media (orientation: portrait) {
+  body {
+    background-size: auto 100vh;
+    background-position: center;
+  }
+}
+/* Small devices (tablets, 768px and up) */
+/* @screen-sm-min = 768px */
+/* @media (min-width: 768px) {
+  body {
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+} */
 
 .App {
   text-align: center;
