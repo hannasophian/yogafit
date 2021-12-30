@@ -28,10 +28,8 @@ function App() {
             setVideoIDs(newVideoIDs)
           }
         />
-        <div className="row">
-          <VideoDisplay vidIDs={videoIDs} />
-        </div>
       </div>
+      <VideoDisplay vidIDs={videoIDs} />
     </div>
   );
 }

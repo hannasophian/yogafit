@@ -108,7 +108,11 @@ export default function OptionSelector({
       {/* select time */}
       <div className="row">
         <div className="Duration-Selection">
-          <div data-aos="zoom-in" data-aos-duration="1000">
+          <div
+            className="duration-box"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+          >
             <label id="timeselector">
               How long would you like your session to be?
             </label>
@@ -139,7 +143,11 @@ export default function OptionSelector({
       {/* Select options */}
       <div className="row">
         <div className="Option-Selection">
-          <div data-aos="zoom-in" data-aos-duration="1000">
+          <div
+            className="option-box"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+          >
             <fieldset key="optionselection">
               <label>What would you like to focus on this session?</label>
               <br />
