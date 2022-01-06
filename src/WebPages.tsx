@@ -9,8 +9,6 @@ import App from "./pages/App";
 // import { Fragment } from "react";
 
 export default function WebsiteRoutes(): JSX.Element {
-  
-  
   return (
     <Router>
       <Routes>
@@ -20,7 +18,6 @@ export default function WebsiteRoutes(): JSX.Element {
         <Route path="/results/:youtube_IDs" element={<Child />} />
         {/* <Route path="/results" element={<Child />} /> */}
       </Routes>
-      
     </Router>
   );
 }
@@ -35,6 +32,6 @@ function Child(): JSX.Element {
       <VideoPage routeEndpoints={youtube_IDs ? youtube_IDs : ""} />
     </div>
   );
-    // return (<div>
-    // <p>Hello World</p></div>)
+  // return (<div>
+  // <p>Hello World</p></div>)
 }

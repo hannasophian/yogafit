@@ -105,8 +105,6 @@ export default function OptionSelector({
   //     .catch((error) => console.log(error));
   // }
 
-  
-
   return (
     <div className="OptionSelector">
       {/* select time */}
@@ -162,17 +160,17 @@ export default function OptionSelector({
             </fieldset>
             <br />
             <a href={`/results/${duration}&${tags.join("~")}`}>
-            <button
-              className="submit-button"
-              disabled={
-                tags.length === 0 ||
-                tags.length > tagLimits[times.indexOf(duration)]
-              }
-              // ref={`/results/${duration}&${tags.join("&")}`}
-              // onClick={() => getVideosDb(duration, tags)}
-            >
-              Get my workout
-            </button>
+              <button
+                className="submit-button"
+                disabled={
+                  tags.length === 0 ||
+                  tags.length > tagLimits[times.indexOf(duration)]
+                }
+                // ref={`/results/${duration}&${tags.join("&")}`}
+                // onClick={() => getVideosDb(duration, tags)}
+              >
+                Get my workout
+              </button>
             </a>
           </div>
         </div>
