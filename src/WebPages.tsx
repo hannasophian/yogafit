@@ -32,7 +32,7 @@ function Child(): JSX.Element {
 
   return (
     <div>
-      <VideoPage idList={youtube_IDs ? youtube_IDs : ""} />
+      <VideoPage routeEndpoints={youtube_IDs ? youtube_IDs : ""} />
     </div>
   );
     // return (<div>
