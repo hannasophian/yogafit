@@ -1,9 +1,9 @@
 // import React from "react";
 import { useState } from "react";
-import AppHeader from "./components/AppHeader";
-import OptionSelector from "./components/OptionSelector";
-import VideoDisplay from "./components/VideoDisplay";
-import "./App.css";
+import AppHeader from "../components/AppHeader";
+import OptionSelector from "../components/OptionSelector";
+import VideoDisplay from "../components/VideoDisplay";
+import "../css/App.css";
 
 import AOS from "aos";
 import "aos/dist/aos.css";

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MaxCheckMessage from "../utils/MaxCheckMessage";
 
+// import { useHistory } from 'react-router-dom';
+
 // import { Video } from "../utils/Video";
 
 interface OptionSelectorProps {
@@ -84,24 +86,24 @@ export default function OptionSelector({
   };
   //   useEffect(() => console.log(duration, level, tags), [duration, level, tags]);
 
-  async function getVideosDb(duration: number, tags: string[]) {
-    fetch(
-      `https://yogafit-server.herokuapp.com/getvideos/3/${duration}/${tags.join(
-        "/"
-      )}`
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then(
-        (video) => {
-          // console.log(video.data.videoIDs);
-          handleSetVideoIDs(video.data.videoIDs);
-        }
-        // (error) => console.log(error)
-      )
-      .catch((error) => console.log(error));
-  }
+  // async function getVideosDb(duration: number, tags: string[]) {
+  //   fetch(
+  //     `https://yogafit-server.herokuapp.com/getvideos/3/${duration}/${tags.join(
+  //       "/"
+  //     )}`
+  //   )
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then(
+  //       (video) => {
+  //         // console.log(video.data.videoIDs);
+  //         handleSetVideoIDs(video.data.videoIDs);
+  //       }
+  //       // (error) => console.log(error)
+  //     )
+  //     .catch((error) => console.log(error));
+  // }
 
   return (
     <div className="OptionSelector">
@@ -157,16 +159,19 @@ export default function OptionSelector({
               {typesOptions}
             </fieldset>
             <br />
-            <button
-              className="submit-button"
-              disabled={
-                tags.length === 0 ||
-                tags.length > tagLimits[times.indexOf(duration)]
-              }
-              onClick={() => getVideosDb(duration, tags)}
-            >
-              Get my workout
-            </button>
+            <a href={`/results/${duration}&${tags.join("~")}`}>
+              <button
+                className="submit-button"
+                disabled={
+                  tags.length === 0 ||
+                  tags.length > tagLimits[times.indexOf(duration)]
+                }
+                // ref={`/results/${duration}&${tags.join("&")}`}
+                // onClick={() => getVideosDb(duration, tags)}
+              >
+                Get my workout
+              </button>
+            </a>
           </div>
         </div>
       </div>
