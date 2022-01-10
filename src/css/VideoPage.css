@@ -88,3 +88,11 @@ body {
 
   /* background-color: rgb(18, 146, 146); */
 }
+
+.video-header {
+  background-color: rgb(12, 32, 32, 0.5);
+  height: auto;
+  width: auto;
+  padding: 2vw;
+  margin: 2vw 0;
+}
