@@ -19,6 +19,13 @@ body {
     background-size: auto 100vh;
     background-position: center;
   }
+  .video {
+    width: 100%;
+    margin: 0;
+  }
+  .page-body {
+    width: 100vw;
+  }
 }
 /* Small devices (tablets, 768px and up) */
 /* @screen-sm-min = 768px */
@@ -122,4 +129,13 @@ body {
 
 .spinner {
   margin-top: 30vh;
+}
+
+.video {
+  margin: 20px;
+  width: 50%;
+}
+
+iframe {
+  width: 100%;
 }

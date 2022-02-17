@@ -58,7 +58,7 @@ export default function VideoPage(props: {
         {videoIDs.length !== 0 && (
           <>
             <h3>Search Results</h3>
-            <p>Duration: {duration}</p>
+            <p>Duration: {duration} minutes</p>
             <p>Tags: {tags.map((tag) => tag).join(", ")}</p>
             <VideoDisplay vidIDs={videoIDs} />
           </>
