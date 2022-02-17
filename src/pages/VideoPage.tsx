@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import VideoDisplay from "../components/VideoDisplay";
 import "../css/VideoPage.css";
 import NavBar from "../components/NavBar";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function VideoPage(props: {
   routeEndpoints: string;
@@ -51,10 +52,17 @@ export default function VideoPage(props: {
     <div className="VideoPage">
       <NavBar />
       <div className="page-body">
-        <h3>Search Results</h3>
-        <p>Duration: {duration}</p>
-        <p>Tags: {tags.map((tag) => tag).join(", ")}</p>
-        <VideoDisplay vidIDs={videoIDs} />
+        {videoIDs.length === 0 && (
+          <LoadingSpinner text="Finding you the best videos" />
+        )}
+        {videoIDs.length !== 0 && (
+          <>
+            <h3>Search Results</h3>
+            <p>Duration: {duration}</p>
+            <p>Tags: {tags.map((tag) => tag).join(", ")}</p>
+            <VideoDisplay vidIDs={videoIDs} />
+          </>
+        )}
       </div>
     </div>
   );

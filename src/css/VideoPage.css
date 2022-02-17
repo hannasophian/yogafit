@@ -119,3 +119,7 @@ h3 {
 body {
   margin: 0;
 }
+
+.spinner {
+  margin-top: 30vh;
+}
