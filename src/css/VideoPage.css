@@ -30,12 +30,13 @@ body {
   }
 } */
 
-.VideoPage {
+.page-body {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 80px;
 }
 
 .App-Header {
@@ -95,4 +96,26 @@ body {
   width: auto;
   padding: 2vw;
   margin: 2vw 0;
+}
+
+nav {
+  width: 100vw;
+  margin: 0;
+  background-color: rgb(12, 32, 32, 0.5);
+  color: white;
+  /* position: fixed; */
+}
+
+h3 {
+  color: white;
+  font-family: "Comfortaa", cursive;
+}
+
+.VideoPage {
+  width: 100vw;
+  margin: 0;
+}
+
+body {
+  margin: 0;
 }

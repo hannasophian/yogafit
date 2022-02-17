@@ -12,6 +12,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
+  width: 100vw;
+  margin: 0;
 }
 
 @media (orientation: portrait) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import VideoDisplay from "../components/VideoDisplay";
 import "../css/VideoPage.css";
-import VideoHeader from "../components/VideoHeader";
+import NavBar from "../components/NavBar";
 
 export default function VideoPage(props: {
   routeEndpoints: string;
@@ -49,11 +49,13 @@ export default function VideoPage(props: {
 
   return (
     <div className="VideoPage">
-      <VideoHeader duration={duration} tags={tags} />
-      <h3>Search Results</h3>
-      <p>Duration: {duration}</p>
-      <p>Tags: {tags.map((tag) => tag).join(", ")}</p>
-      <VideoDisplay vidIDs={videoIDs} />
+      <NavBar />
+      <div className="page-body">
+        <h3>Search Results</h3>
+        <p>Duration: {duration}</p>
+        <p>Tags: {tags.map((tag) => tag).join(", ")}</p>
+        <VideoDisplay vidIDs={videoIDs} />
+      </div>
     </div>
   );
 }
