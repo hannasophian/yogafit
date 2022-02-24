@@ -55,7 +55,7 @@ export default function OptionSelector({
     "Relaxing",
   ];
   const typesOptions = types.map((type) => (
-    <div>
+    <div key={type}>
       <input
         key={`type.${type}`}
         type="checkbox"
