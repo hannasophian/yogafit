@@ -84,26 +84,7 @@ export default function OptionSelector({
       }
     }
   };
-  //   useEffect(() => console.log(duration, level, tags), [duration, level, tags]);
 
-  // async function getVideosDb(duration: number, tags: string[]) {
-  //   fetch(
-  //     `https://yogafit-server.herokuapp.com/getvideos/3/${duration}/${tags.join(
-  //       "/"
-  //     )}`
-  //   )
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then(
-  //       (video) => {
-  //         // console.log(video.data.videoIDs);
-  //         handleSetVideoIDs(video.data.videoIDs);
-  //       }
-  //       // (error) => console.log(error)
-  //     )
-  //     .catch((error) => console.log(error));
-  // }
 
   return (
     <div className="OptionSelector">
@@ -115,13 +96,12 @@ export default function OptionSelector({
             data-aos="zoom-in"
             data-aos-duration="1000"
           >
-            <label id="timeselector">
+            <label htmlFor="time-dropdown">
               How long would you like your session to be?
             </label>
             <br />
             <select
-              key="timeselections"
-              id="timeselector"
+              id="time-dropdown"
               value={duration}
               onChange={(e) => {
                 setDuration(parseInt(e.target.value));
@@ -129,18 +109,10 @@ export default function OptionSelector({
             >
               {timeOptions}
             </select>
+            
           </div>
         </div>
       </div>
-      {/* select difficulty level*/}
-      {/* <label id="levelSelector">Select difficulty level: </label>
-      <select
-        name="levelSelector"
-        id="levelSelector"
-        onChange={(e) => setLevel(parseInt(e.target.value))}
-      >
-        {levelOptions}
-      </select> */}
 
       {/* Select options */}
       <div className="row">
