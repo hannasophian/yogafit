@@ -85,7 +85,6 @@ export default function OptionSelector({
     }
   };
 
-
   return (
     <div className="OptionSelector">
       {/* select time */}
@@ -109,7 +108,6 @@ export default function OptionSelector({
             >
               {timeOptions}
             </select>
-            
           </div>
         </div>
       </div>
