@@ -5,13 +5,7 @@ import MaxCheckMessage from "../utils/MaxCheckMessage";
 
 // import { Video } from "../utils/Video";
 
-interface OptionSelectorProps {
-  handleSetVideoIDs(newVideoIDs: string[]): void;
-}
-
-export default function OptionSelector({
-  handleSetVideoIDs,
-}: OptionSelectorProps): JSX.Element {
+export default function OptionSelector(): JSX.Element {
   // time options
   const times = [20, 30, 45, 60];
   const tagLimits = [1, 2, 2, 3];
