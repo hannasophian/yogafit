@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MaxCheckMessage from "../utils/MaxCheckMessage";
+import DurationSelectionBox from "./DurationSelectionBox";
 
 // import { useHistory } from 'react-router-dom';
 
@@ -9,16 +10,11 @@ export default function OptionSelector(): JSX.Element {
   // time options
   const times = [20, 30, 45, 60];
   const tagLimits = [1, 2, 2, 3];
-  const timeOptions = times.map((time) => (
-    <option key={time} value={time}>
-      {time} mins
-    </option>
-  ));
 
   const [inputOptions, setInputOptions] = useState<{
     duration: number;
     tags: string[];
-  }>({ duration: times[0], tags: [] });
+  }>({ duration: 20, tags: [] });
 
   const types = [
     "general",
@@ -83,30 +79,11 @@ export default function OptionSelector(): JSX.Element {
     <div className="OptionSelector">
       {/* select time */}
       <div className="row">
-        <div className="Duration-Selection">
-          <div
-            className="duration-box"
-            data-aos="zoom-in"
-            data-aos-duration="1000"
-          >
-            <label htmlFor="time-dropdown">
-              How long would you like your session to be?
-            </label>
-            <br />
-            <select
-              id="time-dropdown"
-              value={inputOptions.duration}
-              onChange={(e) => {
-                setInputOptions({
-                  ...inputOptions,
-                  duration: parseInt(e.target.value),
-                });
-              }}
-            >
-              {timeOptions}
-            </select>
-          </div>
-        </div>
+        <DurationSelectionBox
+          inputOptions={inputOptions}
+          setInputOptions={setInputOptions}
+          times={times}
+        />
       </div>
 
       {/* Select options */}
@@ -134,9 +111,9 @@ export default function OptionSelector(): JSX.Element {
               <button
                 className="submit-button"
                 disabled={
-                  inputOptions.tags.length === 0 ||
-                  inputOptions.tags.length >
-                    tagLimits[times.indexOf(inputOptions.duration)]
+                  inputOptions.tags.length === 0 //||
+                  // inputOptions.tags.length >
+                  //   tagLimits[times.indexOf(inputOptions.duration)]
                 }
               >
                 Get my workout
