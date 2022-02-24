@@ -21,13 +21,9 @@ export default function VideoPage(props: {
         .then((res) => {
           return res.json();
         })
-        .then(
-          (video) => {
-            // console.log(video.data.videoIDs);
-            setVideoIDs(video.data.videoIDs);
-          }
-          // (error) => console.log(error)
-        )
+        .then((video) => {
+          setVideoIDs(video.data.videoIDs);
+        })
         .catch((error) => console.log(error));
     }
   }
