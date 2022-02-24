@@ -14,18 +14,12 @@ export default function OptionSelector(): JSX.Element {
       {time} mins
     </option>
   ));
-  const [duration, setDuration] = useState<number>(times[0]);
 
-  // level options
-  // const [level, setLevel] = useState<number>(1);
-  // const levels = [1, 2, 3];
-  // const levelsToShow = ["Beginner", "Intermediate", "Advanced"];
-  // const levelOptions = levels.map((level) => (
-  //   <option value={level}>{levelsToShow[levels.indexOf(level)]}</option>
-  // ));
+  const [inputOptions, setInputOptions] = useState<{
+    duration: number;
+    tags: string[];
+  }>({ duration: times[0], tags: [] });
 
-  //   tag options
-  const [tags, setTags] = useState<string[]>([]);
   const types = [
     "general",
     "yin",
@@ -65,16 +59,22 @@ export default function OptionSelector(): JSX.Element {
     newTag: string,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    if (tags.includes(newTag)) {
+    if (inputOptions.tags.includes(newTag)) {
       // if already selected, remove tag
-      let currentTags = [...tags];
-      currentTags.splice(tags.indexOf(newTag), 1);
-      setTags(currentTags);
+      let currentTags = [...inputOptions.tags];
+      currentTags.splice(inputOptions.tags.indexOf(newTag), 1);
+      setInputOptions({ ...inputOptions, tags: currentTags });
     } else {
-      if (tags.length >= tagLimits[times.indexOf(duration)]) {
+      if (
+        inputOptions.tags.length >=
+        tagLimits[times.indexOf(inputOptions.duration)]
+      ) {
         event.currentTarget.checked = false;
       } else {
-        setTags([...tags, newTag]);
+        setInputOptions({
+          ...inputOptions,
+          tags: [...inputOptions.tags, newTag],
+        });
       }
     }
   };
@@ -95,9 +95,12 @@ export default function OptionSelector(): JSX.Element {
             <br />
             <select
               id="time-dropdown"
-              value={duration}
+              value={inputOptions.duration}
               onChange={(e) => {
-                setDuration(parseInt(e.target.value));
+                setInputOptions({
+                  ...inputOptions,
+                  duration: parseInt(e.target.value),
+                });
               }}
             >
               {timeOptions}
@@ -118,20 +121,23 @@ export default function OptionSelector(): JSX.Element {
               <label>What would you like to focus on this session?</label>
               <br />
               <label>
-                <MaxCheckMessage duration={duration} />
+                <MaxCheckMessage duration={inputOptions.duration} />
               </label>
               {typesOptions}
             </fieldset>
             <br />
-            <a href={`/results/${duration}&${tags.join("~")}`}>
+            <a
+              href={`/results/${inputOptions.duration}&${inputOptions.tags.join(
+                "~"
+              )}`}
+            >
               <button
                 className="submit-button"
                 disabled={
-                  tags.length === 0 ||
-                  tags.length > tagLimits[times.indexOf(duration)]
+                  inputOptions.tags.length === 0 ||
+                  inputOptions.tags.length >
+                    tagLimits[times.indexOf(inputOptions.duration)]
                 }
-                // ref={`/results/${duration}&${tags.join("&")}`}
-                // onClick={() => getVideosDb(duration, tags)}
               >
                 Get my workout
               </button>
