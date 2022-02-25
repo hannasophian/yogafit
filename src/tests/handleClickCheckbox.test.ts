@@ -6,7 +6,7 @@ import { InputOptionsInterface } from "../utils/InputOptionsInterface";
  * TO-DO:
  * - Doesn't add tag when current tags are at maximum
  * - Adds a tag if there are no current tags
- * 
+ *
  */
 
 /**
@@ -16,11 +16,16 @@ import { InputOptionsInterface } from "../utils/InputOptionsInterface";
  */
 
 test("Adds tag 'vinyasa' when it is not in current tags and tag limit has not been met", () => {
-    const output = handleClickCheckbox("vinyasa", inputOptions1, tagLimits, times);
-  expect(output.tags).toStrictEqual(["stretch", "morning", "vinyasa"])
+  const output = handleClickCheckbox(
+    "vinyasa",
+    inputOptions1,
+    tagLimits,
+    times
+  );
+  expect(output.tags).toStrictEqual(["stretch", "morning", "vinyasa"]);
 });
 
-const inputOptions1= {
+const inputOptions1 = {
   duration: 60,
   tags: ["stretch", "morning"],
 };
@@ -28,6 +33,11 @@ const times = [20, 30, 45, 60];
 const tagLimits = [1, 2, 2, 3];
 
 test("Removes a tag if it already exists in current tags", () => {
-    const output = handleClickCheckbox("stretch", inputOptions1, tagLimits, times);
-    expect(output.tags).toStrictEqual(["morning"]);
-})
+  const output = handleClickCheckbox(
+    "stretch",
+    inputOptions1,
+    tagLimits,
+    times
+  );
+  expect(output.tags).toStrictEqual(["morning"]);
+});
