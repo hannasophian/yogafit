@@ -4,10 +4,9 @@ export default function AppHeader(): JSX.Element {
       <div>
         <div className="header-box">
           <h1>YogaFit</h1>
-          {/* <br /> */}
-          <p>Get a custom workout to relax and unwind</p>
+          <p>Get a custom YouTube yoga session to relax and unwind</p>
         </div>
-        <small>Scroll down to continue!</small>
+        <p>Scroll down to continue!</p>
       </div>
     </div>
   );

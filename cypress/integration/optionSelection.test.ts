@@ -2,7 +2,7 @@
 
 describe("example to-do app", () => {
   beforeEach(() => {
-    cy.visit('https://yoga-fit.netlify.app/');
+    cy.visit("https://yoga-fit.netlify.app/");
     // cy.visit("http://localhost:3000/");
     cy.on("uncaught:exception", (err) => {
       // expect(err.message).to.include('Ignoring error for now');
@@ -21,10 +21,6 @@ describe("example to-do app", () => {
     cy.get("#time-dropdown").select("45 mins");
     cy.get("#vinyasa").check();
     cy.get(".submit-button").click();
-    cy.get(".video").should('be.visible');
-
-
-
+    cy.get(".video").should("be.visible");
   });
-
 });

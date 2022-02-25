@@ -11,7 +11,7 @@ export default function VideoDisplay(props: { vidIDs: string[] }): JSX.Element {
         ></iframe>
         <div className="video-info">
           <p>
-            Video {index+1}/{props.vidIDs.length}
+            Video {index + 1}/{props.vidIDs.length}
           </p>
         </div>
       </div>
