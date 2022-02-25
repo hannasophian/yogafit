@@ -79,19 +79,6 @@ function TagSelectionBox({
           </label>
           {typesOptions}
         </fieldset>
-        <br />
-        <a
-          href={`/results/${inputOptions.duration}&${inputOptions.tags.join(
-            "~"
-          )}`}
-        >
-          <button
-            className="submit-button"
-            disabled={inputOptions.tags.length === 0}
-          >
-            Get my workout
-          </button>
-        </a>
       </div>
     </div>
   );

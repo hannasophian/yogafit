@@ -37,6 +37,23 @@ export default function OptionSelector(): JSX.Element {
           tagLimits={tagLimits}
         />
       </div>
+
+      <div className="row">
+        <a
+          href={`/results/${inputOptions.duration}&${inputOptions.tags.join(
+            "~"
+          )}`}
+        >
+          <button
+            // className="submit-button"
+            type="button"
+            className="btn btn-primary"
+            disabled={inputOptions.tags.length === 0}
+          >
+            Get my workout
+          </button>
+        </a>
+      </div>
     </div>
   );
 }
