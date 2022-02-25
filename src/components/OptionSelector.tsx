@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { InputOptionsInterface } from "../utils/InputOptionsInterface";
 import DurationSelectionBox from "./DurationSelectionBox";
 import TagSelectionBox from "./TagSelectionBox";
 
@@ -11,10 +12,10 @@ export default function OptionSelector(): JSX.Element {
   const times = [20, 30, 45, 60];
   const tagLimits = [1, 2, 2, 3];
 
-  const [inputOptions, setInputOptions] = useState<{
-    duration: number;
-    tags: string[];
-  }>({ duration: 20, tags: [] });
+  const [inputOptions, setInputOptions] = useState<InputOptionsInterface>({
+    duration: 20,
+    tags: [],
+  });
 
   return (
     <div className="OptionSelector">
