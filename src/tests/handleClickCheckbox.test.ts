@@ -5,7 +5,7 @@ import { InputOptionsInterface } from "../utils/InputOptionsInterface";
 /**
  * TO-DO:
  * - Doesn't add tag when current tags are at maximum
- * 
+ *
  */
 
 /**
@@ -46,16 +46,16 @@ test("Removes a tag if it already exists in current tags", () => {
 
 // Test 3
 test("Doesn't add tag when current tags are at maximum", () => {
-    const output = handleClickCheckbox(
-      "vinyasa",
-      inputOptions2,
-      tagLimits,
-      times
-    );
-    expect(output.tags).toStrictEqual(["stretch"]);
-  });
+  const output = handleClickCheckbox(
+    "vinyasa",
+    inputOptions2,
+    tagLimits,
+    times
+  );
+  expect(output.tags).toStrictEqual(["stretch"]);
+});
 
-  const inputOptions2 = {
-    duration: 20,
-    tags: ["stretch"],
-  };
+const inputOptions2 = {
+  duration: 20,
+  tags: ["stretch"],
+};
