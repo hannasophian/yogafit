@@ -53,7 +53,6 @@ function TagSelectionBox({
         onChange={(event) =>
           handleClickCheckbox(
             type,
-            event,
             inputOptions,
             setInputOptions,
             tagLimits,

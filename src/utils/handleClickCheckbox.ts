@@ -1,6 +1,5 @@
 export default function handleClickCheckbox(
   newTag: string,
-  event: React.ChangeEvent<HTMLInputElement>,
   inputOptions: {
     duration: number;
     tags: string[];
@@ -21,11 +20,8 @@ export default function handleClickCheckbox(
     setInputOptions({ ...inputOptions, tags: currentTags });
   } else {
     if (
-      inputOptions.tags.length >=
-      tagLimits[times.indexOf(inputOptions.duration)]
+      inputOptions.tags.length < tagLimits[times.indexOf(inputOptions.duration)]
     ) {
-      event.currentTarget.checked = false;
-    } else {
       setInputOptions({
         ...inputOptions,
         tags: [...inputOptions.tags, newTag],
