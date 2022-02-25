@@ -1,31 +1,26 @@
+import { InputOptionsInterface } from "./InputOptionsInterface";
+
 export default function handleClickCheckbox(
   newTag: string,
-  inputOptions: {
-    duration: number;
-    tags: string[];
-  },
-  setInputOptions: React.Dispatch<
-    React.SetStateAction<{
-      duration: number;
-      tags: string[];
-    }>
-  >,
+  inputOptions: InputOptionsInterface,
   tagLimits: number[],
   times: number[]
-) {
+): InputOptionsInterface {
   if (inputOptions.tags.includes(newTag)) {
     // if already selected, remove tag
     let currentTags = [...inputOptions.tags];
     currentTags.splice(inputOptions.tags.indexOf(newTag), 1);
-    setInputOptions({ ...inputOptions, tags: currentTags });
+    return { ...inputOptions, tags: currentTags };
   } else {
     if (
       inputOptions.tags.length < tagLimits[times.indexOf(inputOptions.duration)]
     ) {
-      setInputOptions({
+      return {
         ...inputOptions,
         tags: [...inputOptions.tags, newTag],
-      });
+      };
+    } else {
+      return inputOptions;
     }
   }
 }

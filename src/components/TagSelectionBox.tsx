@@ -43,12 +43,8 @@ function TagSelectionBox({
         key={`type.${type}`}
         type="checkbox"
         onChange={(event) =>
-          handleClickCheckbox(
-            type,
-            inputOptions,
-            setInputOptions,
-            tagLimits,
-            times
+          setInputOptions(
+            handleClickCheckbox(type, inputOptions, tagLimits, times)
           )
         }
         id={type}
