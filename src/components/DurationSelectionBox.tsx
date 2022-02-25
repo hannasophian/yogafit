@@ -1,14 +1,8 @@
+import { InputOptionsInterface } from "../utils/InputOptionsInterface";
+
 interface Props {
-  inputOptions: {
-    duration: number;
-    tags: string[];
-  };
-  setInputOptions: React.Dispatch<
-    React.SetStateAction<{
-      duration: number;
-      tags: string[];
-    }>
-  >;
+  inputOptions: InputOptionsInterface;
+  setInputOptions: React.Dispatch<React.SetStateAction<InputOptionsInterface>>;
   times: number[];
 }
 

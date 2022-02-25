@@ -1,19 +1,11 @@
 import handleClickCheckbox from "../utils/handleClickCheckbox";
+import { InputOptionsInterface } from "../utils/InputOptionsInterface";
 import MaxCheckMessage from "../utils/MaxCheckMessage";
 
 interface Props {
-  inputOptions: {
-    duration: number;
-    tags: string[];
-  };
-  setInputOptions: React.Dispatch<
-    React.SetStateAction<{
-      duration: number;
-      tags: string[];
-    }>
-  >;
+  inputOptions: InputOptionsInterface;
+  setInputOptions: React.Dispatch<React.SetStateAction<InputOptionsInterface>>;
   times: number[];
-
   tagLimits: number[];
 }
 
@@ -51,13 +43,8 @@ function TagSelectionBox({
         key={`type.${type}`}
         type="checkbox"
         onChange={(event) =>
-          handleClickCheckbox(
-            type,
-            event,
-            inputOptions,
-            setInputOptions,
-            tagLimits,
-            times
+          setInputOptions(
+            handleClickCheckbox(type, inputOptions, tagLimits, times)
           )
         }
         id={type}
