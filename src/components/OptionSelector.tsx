@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import MaxCheckMessage from "../utils/MaxCheckMessage";
+import { useState } from "react";
 import DurationSelectionBox from "./DurationSelectionBox";
 import TagSelectionBox from "./TagSelectionBox";
 
