@@ -62,6 +62,7 @@ function TagSelectionBox({
         }
         id={type}
         name="sessiontype"
+        checked={inputOptions.tags.includes(type)}
       />
       <label>{typesToShow[types.indexOf(type)]}</label>
     </div>
