@@ -1,6 +1,7 @@
 import handleClickCheckbox from "../utils/handleClickCheckbox";
 import { InputOptionsInterface } from "../utils/InputOptionsInterface";
-import MaxCheckMessage from "../utils/MaxCheckMessage";
+import maxCheckMessage from "../utils/maxCheckMessage";
+// import MaxCheckMessage from "../utils/maxCheckMessage";
 
 interface Props {
   inputOptions: InputOptionsInterface;
@@ -62,7 +63,8 @@ function TagSelectionBox({
           <label>What would you like to focus on this session?</label>
           <br />
           <label>
-            <MaxCheckMessage duration={inputOptions.duration} />
+            <small>{maxCheckMessage(inputOptions.duration)}</small>
+            {/* <MaxCheckMessage duration={inputOptions.duration} /> */}
           </label>
           {typesOptions}
         </fieldset>
