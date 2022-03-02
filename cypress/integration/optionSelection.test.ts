@@ -20,7 +20,7 @@ describe("example to-do app", () => {
   it("Select options and get videos", () => {
     cy.get("#time-dropdown").select("45 mins");
     cy.get("#vinyasa").check();
-    cy.get(".submit-button").click();
+    cy.get(".btn").click();
     cy.get(".video").should("be.visible");
   });
 });

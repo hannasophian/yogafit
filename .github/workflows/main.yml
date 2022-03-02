@@ -23,3 +23,5 @@ jobs:
         run: yarn build
       - name: Check tests pass
         run: yarn test
+      - name: Check cypress tests pass
+        run: yarn cypress:test
