@@ -48,6 +48,7 @@ export default function OptionSelector(): JSX.Element {
             // className="submit-button"
             type="button"
             className="btn btn-primary"
+            id="getworkout"
             disabled={inputOptions.tags.length === 0}
           >
             Get my workout

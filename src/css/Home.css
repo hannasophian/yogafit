@@ -90,3 +90,13 @@ body {
 
   /* background-color: rgb(18, 146, 146); */
 }
+
+#getworkout {
+  margin: 5vw 0;
+  background-color: #1a132f;
+  color: white;
+}
+
+#getworkout:hover {
+  background-color: #3d3061;
+}

@@ -97,21 +97,13 @@ body {
   /* background-color: rgb(18, 146, 146); */
 }
 
-.video-header {
+/* .video-header {
   background-color: rgb(12, 32, 32, 0.5);
   height: auto;
   width: auto;
   padding: 2vw;
   margin: 2vw 0;
-}
-
-nav {
-  width: 100vw;
-  margin: 0;
-  background-color: rgb(12, 32, 32, 0.5);
-  color: white;
-  /* position: fixed; */
-}
+} */
 
 h3 {
   color: white;
